@@ -19,16 +19,20 @@ app.use(helper)
 // 0. test
 // app.get('/test', (req, res, next) => res.send('test ok') )
 
-// 1. router 
+// 1. router cors
+var cors = require('cors');
+app.use(cors())
+
+// 2. router 
 var indexRouter = require('./routes/index')
 var apiRouter = require('./routes/api')
 
 app.use('/', indexRouter)
 app.use('/api', apiRouter)
 
-// view OR "view engine"
+// 3. view OR "view engine"
 app.use('/', express.static(__dirname + '/views'))
 app.get('/', (req, res) => res.sendFile(__dirname + '/views/index.html') )
 
-// final - start server
+// 4. final - start server
 app.listen(global.myConfig.server_port, () => console.log('App listening on port ' + global.myConfig.server_port))
