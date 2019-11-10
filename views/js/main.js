@@ -14553,7 +14553,10 @@ webpackJsonp([1], {
             cc = n("3a3m"),
             hc = function () {
                 function t(t) {
-                    this.http = t, this.address = "http://localhost:3000/api/posts", this.frontend = new pc, this.frontendKey = "isFrontend", this.isFrontend = parseInt(localStorage.getItem(this.frontendKey)) || ac.Frontend
+                    var url = window.location.href; //window.location.hostname
+                    var arr = url.split("/");
+                    var hostAndPort = arr[0] + "//" + arr[2]
+                    this.http = t, this.address = hostAndPort + "/api/posts", this.frontend = new pc, this.frontendKey = "isFrontend", this.isFrontend = parseInt(localStorage.getItem(this.frontendKey)) || ac.Frontend
                 }
                 return t.prototype.onSetConnection = function (t) {
                     var e = this;
