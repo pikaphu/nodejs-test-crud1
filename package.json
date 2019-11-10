@@ -1,0 +1,24 @@
+{
+  "name": "my-nodejs",
+  "version": "1.0.0",
+  "description": "testing project with nodejs coding",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon",
+    "test": "mocha ./testing/",
+    "test_default": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PikaPhu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.2",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

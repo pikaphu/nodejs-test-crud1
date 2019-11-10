@@ -1,0 +1,31 @@
+#1.
+FROM node:12-alpine
+
+#2.Create app directory
+RUN mkdir -p /myapp
+
+#3. 
+WORKDIR /myapp
+
+#4. (prepare dependency)
+COPY package*.json ./
+
+#5. (optional setup)
+RUN npm install -g nodemon
+
+#6. (setup from package.json)
+RUN npm install
+# RUN npm ci --only=production
+
+#7. Bundle app source
+COPY . .
+
+#8. (server port)
+EXPOSE 3000
+
+#9. (serve!)
+CMD [ "npm", "run", "dev" ]
+# CMD [ "node", "index.js" ]
+
+# docker build -t nodejs:12-alpine .
+# docker run --name phu-nodejs-posts -d -p 6001:3000 nodejs:12-alpine 
